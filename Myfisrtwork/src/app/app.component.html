@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-dark bg-primary navbar-fixed-top">
+    <span class="navbar-brand mb-0 h1">Navbar</span>
+  </nav>
+  <div class="container-wrap d-flex">
+    <aside class="d-none d-md-block">
+      <div class="container">
+        <div class="row">
+          <button type="button" (click)="clickans()" class="btn btn-outline-success">交卷</button>
+        </div>
+        <div *ngFor="let detail of question; index as i" class="row" class="row">
+          <input type="button" class="btn btn-outline-info" value="題目{{i+1}}" (click)="ChangFun(i)">
+          <!-- <span></span> -->
+        </div>
+      </div>
+    </aside>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">{{question[index]}}</div>
+      </div>
+      <div *ngFor="let detail of options[index]" class="row">
+        <div><button (click)="clickFunction(detail.value,index)" class="btn btn-outline-primary">{{detail.value}}</button></div>
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">{{detail.text}}</div>
+      </div>
+    </div>
+    <aside class="d-none d-md-block">
+      <div class="container">
+        <div>ADS</div>
+        <div>ADS</div>
+      </div>
+
+    </aside>
+  </div>
+  <footer>I'm footer.</footer>
+</body>
+
+</html>
